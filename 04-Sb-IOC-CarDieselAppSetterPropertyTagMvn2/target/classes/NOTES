@@ -1,0 +1,15 @@
+			<!-- bean definitions here -->
+    
+ 				<bean id="de" class="in.ashok.DieselEngine" />
+   				<bean id="pe" class="in.ashok.PetrolEngine" />
+     			<bean id="car" class="in.ashok.Car" >
+  				</bean>
+  				
+  				note:: just beans are defained but not performing DI
+  				MANUAL WIRING
+  				============
+  				==>	We need to tell to IOC container which one is dep and target then IOC will inject dep obj into target object
+  				
+  				==> Otherwise IOC will not perform the DI
+  				
+  				==> Otherwise we will get null pointer exception

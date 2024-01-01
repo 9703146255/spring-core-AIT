@@ -1,0 +1,120 @@
+/*
+ IN JAVA One  class will talk to another class in two ways
+ ================================================
+  1]INHERITANCE [IS-A]
+  2]COMPOSITION [HAS-A]
+  
+ 
+ 1]INHERITANCE [IS A]
+ ====================
+ 
+ extends 1C -> ANO(C) [FUTURE WE CNT EXTDN]
+ IF WE CHANG D->CLS EFFECT TRGT->CLS
+ 
+ 	1] problem
+ 	----------
+ 	==>If we extends the properties from one class to another class in future we can't extends 
+ 
+ 	because java not support multiple inheritence
+ 
+  	2] problem
+  	----------
+  	If we change the dependent[engine] class functionality it will effect target class functionality
+  	
+  	
+ 
+ 2]COMPOSITION [HAS A]
+ ====================
+  extends 1C -> ANO(C) [FUTURE WE CNT EXTDN][SOLVED]
+  IF WE CHANG D->CLS EFFECT TRGT->
+  ONLY ONE DEP-> CLS(ITS OK) MORE THAN ONE(WE NEED TO CHANGE AGAIN)
+ 
+ 	1] problem
+ 	-----------
+ 	=>1st problem of is a solved[without extending][JUST CREATE OBJECT AND USE]
+ 	
+ 	=>If we modify dependent  class it is also effect to target[car]  classes
+ 	
+ 	=>If we have one engine/dependent class it will work if we add two or more than two engines in the future it will entire we need to change
+ 	
+ 	
+ 	NOTE:: IF WE USE BOTH
+Conclusion
+=============
+
+=> With IS-A & HAS-A relation our classes are tightly coupled.
+
+
+=> Developing classs with tighlty coupling not recommended.
+
+=> Always we need to develop our classes with loosely coupling.
+
+=> To develop classes with loosely coupling we will use Spring Core module.
+
+
+=============
+Spring Core
+==============
+
+-> It is base module in spring framework
+
+-> Core module providing fundamental concepts of spring
+
+		1) IOC container (IOC)
+		2) Dependency Injection (DI)
+		4) Autowiring 
+
+
+=> By  using spring core concepts we can develop classs with loosely coupling.
+
+=> If we want our classes to be managed by IOC then we need to develop our classes with some rules.
+
+=========================
+Strategy Design Pattern
+=========================
+
+1) Favour composition over inheritence
+
+2) Code with Interfaces instead of implementation classes
+
+3) Code should be open for extension and closed for modification
+
+
+========================
+Constructor Injection
+========================
+
+=> Inject one class object into another class obj using constructor.
+
+	Ex : Car c = new Car(new PetrolEng());
+
+
+========================
+setter Injection
+========================
+
+=> Injecting one class object into another class object using setter method 
+
+
+
+		Ex:   Car c = new Car();
+			 c.setEng(new DieselEng());
+
+
+
+
+
+Q) If we perform both CI & SI then what will happen ?
+
+Ans) 
+
+CI will happen first at the time of obj creation
+
+Afte CI, SI will happen
+
+SI will override CI
+
+So the final value will be SI injected value/obj.
+ 	
+ 	
+ */

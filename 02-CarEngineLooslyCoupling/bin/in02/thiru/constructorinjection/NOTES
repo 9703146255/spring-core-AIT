@@ -1,0 +1,11 @@
+CONSTRUCTOR INJECTION
+=====================
+the process of injecting one class object into another class object by using target Class Constructor called Constructor Injection
+	
+		Car c=new Car(new DieselEngine());
+		c.drive();
+		
+		
+		DieselEngine 	==> 	Dependent class
+		
+		Car				==> 	target class

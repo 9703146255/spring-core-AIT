@@ -1,0 +1,66 @@
+. Create (Insert) Operation:
+============================
+@Override
+public void insertBook(Book book) {
+    String sql = "INSERT INTO books (title, author) VALUES (?, ?)";
+    jdbcTemplate.update(sql, book.getTitle(), book.getAuthor());
+}
+
+
+
+
+2. Read (Select) Operations:
+=============================
+a. Retrieve All Books:
+============================
+@Override
+public List<Book> getAllBooks() {
+    String sql = "SELECT * FROM books";
+    return jdbcTemplate.query(sql, new BookRowMapper());
+}
+
+
+b. Retrieve a Single Book by ID:
+=================================
+@Override
+public Book getBookById(int bookId) {
+    String sql = "SELECT * FROM books WHERE id = ?";
+    return jdbcTemplate.queryForObject(sql, new Object[]{bookId}, new BookRowMapper());
+}
+
+
+
+3. Update Operation:
+=====================
+@Override
+public void updateBook(Book book) {
+    String sql = "UPDATE books SET title = ?, author = ? WHERE id = ?";
+    jdbcTemplate.update(sql, book.getTitle(), book.getAuthor(), book.getId());
+}
+
+
+4. Delete Operation:
+=======================
+@Override
+public void deleteBook(int bookId) {
+    String sql = "DELETE FROM books WHERE id = ?";
+    jdbcTemplate.update(sql, bookId);
+}
+
+
+
+
+Additional Notes:
+BookRowMapper: In the examples above, BookRowMapper is a custom implementation of RowMapper<Book>. It maps the result set rows to Book objects. You'll need to implement this class based on your Book entity.
+
+
+public class BookRowMapper implements RowMapper<Book> {
+    @Override
+    public Book mapRow(ResultSet rs, int rowNum) throws SQLException {
+        Book book = new Book();
+        book.setId(rs.getInt("id"));
+        book.setTitle(rs.getString("title"));
+        book.setAuthor(rs.getString("author"));
+        return book;
+    }
+}

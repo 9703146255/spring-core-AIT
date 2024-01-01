@@ -1,0 +1,8 @@
+   <!-- bean definitions here -->
+    
+    <bean id="de" class="in.ashok.DieselEngine" />
+     <bean id="pe" class="in.ashok.PetrolEngine" />
+     <bean id="car" class="in.ashok.Car" />
+     
+  ==>  IOC CONTAINER WILL BE CREATE OBJECT FOR THESE
+    

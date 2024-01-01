@@ -1,0 +1,8 @@
+Default scope is singletone
+===========================
+only one object will be created for singletone scope
+
+prototype
+========================================
+if we give scope= "prototype"
+for every getBean() method  called one new object will be created is called LAZY LOADING

@@ -1,0 +1,24 @@
+When we performing the BYTYEPE MODE
+==================================
+BY DEFAULT IT WILL PERFROM ALL IMPL CLASS OBJECTS 
+
+DON'T GIVE CHANCE TO THAT THAN WE WILL USE  
+
+NOTE :: 01
+
+		<bean id="credit" class="in.thiru.CreditCardPayment"  />  
+        <bean id="debit" class="in.thiru.DebitCardPayment" 	 autowire-candidate="false"/> 
+  		<bean id="sodexo" class="in.thiru.SodexoCardPayment"  autowire-candidate="false" /> 
+  		
+  		autowire-candidate="false" [IOC IT WILL LEFT FROM THE DI]
+  		
+  		
+NOTE :: 02
+			primary="true" it WILL TAKEN CARE THESE ONLY
+
+		<bean id="credit" class="in.thiru.CreditCardPayment"  />  
+       	<bean id="debit" class="in.thiru.DebitCardPayment"  primary="true"	/> 
+  		<bean id="sodexo" class="in.thiru.SodexoCardPayment"   /> 
+  		
+  		
+  		to avoid the ambiguity problem we will use these 1] autowire-candidate="false" 2]primary="true"
